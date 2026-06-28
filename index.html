@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayar Hany | Data Engineer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --linkedin-blue: #0a66c2;
+            --bg-color: #f3f2ef;
+            --text-main: #191919;
+            --text-sub: #666666;
+            --card-bg: #ffffff;
+            --banner-gradient: linear-gradient(45deg, #d8b4fe, #fbcfe8, #bfdbfe);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1128px;
+            margin: 20px auto;
+            padding: 0 10px;
+        }
+
+        /* Profile Header Card */
+        .profile-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .banner {
+            height: 200px;
+            background: var(--banner-gradient);
+            position: relative;
+        }
+
+        .profile-pic-container {
+            position: absolute;
+            top: 120px;
+            left: 24px;
+        }
+
+        .profile-pic {
+            width: 152px;
+            height: 152px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            background: white;
+        }
+
+        .profile-info {
+            padding: 85px 24px 24px 24px;
+        }
+
+        .name-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .name-row h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .headline {
+            font-size: 16px;
+            color: var(--text-main);
+            margin-top: 4px;
+            max-width: 600px;
+        }
+
+        .location-row {
+            margin-top: 8px;
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        .location-row span {
+            color: var(--linkedin-blue);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .stats {
+            margin-top: 8px;
+            font-size: 14px;
+            color: var(--linkedin-blue);
+            font-weight: 600;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .btn {
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-blue { background: var(--linkedin-blue); color: white; border: none; }
+        .btn-blue:hover { background: #004182; }
+
+        .btn-outline { background: transparent; color: var(--linkedin-blue); border: 1px solid var(--linkedin-blue); }
+        .btn-outline:hover { background: rgba(10, 102, 194, 0.1); border-width: 2px; }
+
+        .btn-gray { background: transparent; color: var(--text-sub); border: 1px solid var(--text-sub); }
+
+        /* Generic Card Style */
+        .section-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 12px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .section-card h2 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        /* Projects Grid (GitHub API) */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .repo-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+            transition: 0.3s;
+        }
+
+        .repo-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .repo-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--linkedin-blue);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .repo-desc {
+            font-size: 14px;
+            color: var(--text-sub);
+            margin-bottom: 12px;
+            height: 42px;
+            overflow: hidden;
+        }
+
+        .repo-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        .loader {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-sub);
+        }
+
+        @media (max-width: 768px) {
+            .banner { height: 120px; }
+            .profile-pic-container { top: 60px; }
+            .profile-pic { width: 120px; height: 120px; }
+            .profile-info { padding-top: 70px; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="profile-card">
+            <div class="banner"></div>
+            <div class="profile-pic-container">
+                <img src="https://github.com/Mayar-hany-2005.png" alt="Mayar Hany" class="profile-pic">
+            </div>
+            
+            <div class="profile-info">
+                <div class="name-row">
+                    <div>
+                        <h1>Mayar Hany</h1>
+                        <p class="headline">Data Engineer | ETL & Data Pipeline Development | Python | SQL | Big Data | Machine Learning</p>
+                        <p class="location-row">Cairo, Cairo, Egypt • <span>Contact info</span></p>
+                        <p class="stats">1,459 followers • 500+ connections</p>
+                    </div>
+                    <div style="text-align: right; color: var(--text-sub); font-size: 14px;">
+                        <div style="margin-bottom: 8px;"><i class="fa-solid fa-graduation-cap"></i> Cairo University</div>
+                        <div><i class="fa-solid fa-briefcase"></i> Data Engineering</div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="mailto:mayarhany1999@gmail.com" class="btn btn-blue">Open to</a>
+                    <a href="https://linkedin.com/in/mayar-hany" target="_blank" class="btn btn-outline">LinkedIn Profile</a>
+                    <a href="https://github.com/Mayar-hany-2005" target="_blank" class="btn btn-gray">GitHub</a>
+                </div>
+            </div>
+        </header>
+
+        <section class="section-card">
+            <h2>About</h2>
+            <p style="color: var(--text-main); font-size: 15px;">
+                I am a passionate Data Engineer focused on building scalable ETL pipelines and managing big data architectures. I have experience working with NASA datasets, Airbnb pipelines, and Kepler dashboards. Specialist in Python, SQL, and Machine Learning workflows.
+            </p>
+        </section>
+
+        <section class="section-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h2>Projects (Fetched from GitHub)</h2>
+                <div id="repo-count" style="font-size: 14px; color: var(--text-sub);"></div>
+            </div>
+            <div id="repos-container" class="projects-grid">
+                <div class="loader">Loading projects...</div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2>Experience</h2>
+            <div style="display: flex; gap: 12px; margin-bottom: 20px;">
+                <div style="width: 48px; height: 48px; background: #eee; border-radius: 4px; display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-rocket"></i></div>
+                <div>
+                    <h3 style="font-size: 16px;">GSoC Contributor</h3>
+                    <p style="font-size: 14px;">DeepLense • Internship</p>
+                    <p style="font-size: 14px; color: var(--text-sub);">2024 - Present</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 12px;">
+                <div style="width: 48px; height: 48px; background: #eee; border-radius: 4px; display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-database"></i></div>
+                <div>
+                    <h3 style="font-size: 16px;">Data Engineer Collaborator</h3>
+                    <p style="font-size: 14px;">Open Source Projects</p>
+                    <p style="font-size: 14px; color: var(--text-sub);">Collaborating with Ahmed-Esso on various Big Data projects.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const USERNAMES = ['Mayar-hany-2005', 'Ahmed-Esso'];
+        const container = document.getElementById('repos-container');
+        const repoCountEl = document.getElementById('repo-count');
+
+        async function fetchAllRepos() {
+            try {
+                let allRepos = [];
+                
+                for (const user of USERNAMES) {
+                    const response = await fetch(`https://api.github.com/users/${user}/repos?sort=updated&per_page=10`);
+                    const data = await response.json();
+                    if (Array.isArray(data)) {
+                        allRepos = [...allRepos, ...data];
+                    }
+                }
+
+                // Filter out small repos and sort by update date
+                allRepos = allRepos
+                    .filter(repo => !repo.fork) // عرض المشاريع الأصلية فقط
+                    .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+
+                displayRepos(allRepos);
+            } catch (error) {
+                container.innerHTML = '<div class="loader">Error loading projects. Please check your internet.</div>';
+            }
+        }
+
+        function displayRepos(repos) {
+            container.innerHTML = '';
+            repoCountEl.innerText = `${repos.length} total projects`;
+
+            repos.forEach(repo => {
+                const card = document.createElement('div');
+                card.className = 'repo-card';
+                card.innerHTML = `
+                    <div class="repo-header">
+                        <i class="fa-brands fa-github"></i>
+                        <a href="${repo.html_url}" target="_blank" style="text-decoration:none; color:inherit;">${repo.name}</a>
+                    </div>
+                    <p class="repo-desc">${repo.description || 'No description provided for this data engineering project.'}</p>
+                    <div class="repo-meta">
+                        <span><i class="fa-solid fa-code"></i> ${repo.language || 'Code'}</span>
+                        <span><i class="fa-solid fa-star"></i> ${repo.stargazers_count}</span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        fetchAllRepos();
+    </script>
+</body>
+</html>
