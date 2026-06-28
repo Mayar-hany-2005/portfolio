@@ -10,14 +10,14 @@
   
   <style>
     :root {
-      --bg-cream: #FFF8E7; /* Warmer cream background */
+      --bg-cream: #FFF8E7;
       --text-dark: #3B1324;
       --accent-yellow: #FDE073;
       --accent-pink: #F0A8B4;
       --accent-green: #A3D2BA;
       --accent-purple: #C2B4F2;
       --box-bg: #F4EED8;
-      --grid-color: #E8E0CE; /* Softer grid lines */
+      --grid-color: #E8E0CE;
       --font-head: 'Anton', sans-serif;
       --font-body: 'DM Sans', sans-serif;
     }
@@ -30,7 +30,6 @@
       color: var(--text-dark);
       font-family: var(--font-body);
       overflow-x: hidden;
-      /* Grid Paper Background */
       background-image: 
         linear-gradient(var(--grid-color) 1px, transparent 1px),
         linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
@@ -51,180 +50,41 @@
     .nav-btn { background: var(--text-dark); color: var(--bg-cream); padding: 8px 20px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: transform 0.2s; }
     .nav-btn:hover { transform: translateY(-2px); }
 
-    /* --- HERO SECTION STYLES --- */
-    .hero { 
-      display: flex; 
-      flex-wrap: wrap; 
-      gap: 60px; 
-      align-items: center; 
-      justify-content: center; 
-      min-height: 100vh; 
-      padding-top: 120px; 
-      position: relative;
-    }
-
-    /* Doodles & Decor */
+    /* HERO SECTION STYLES */
+    .hero { display: flex; flex-wrap: wrap; gap: 60px; align-items: center; justify-content: center; min-height: 100vh; padding-top: 120px; position: relative; }
     .decor { position: absolute; font-size: 2rem; z-index: 0; opacity: 0.8; user-select: none; }
     .decor-1 { top: 15%; left: 5%; font-size: 4rem; }
     .decor-2 { top: 20%; right: 5%; font-size: 3rem; }
     .decor-3 { bottom: 10%; right: 8%; font-size: 3.5rem; }
 
-    /* Scalloped Profile Picture */
-    .profile-wrapper {
-      position: relative;
-      width: 380px;
-      height: 380px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2;
-    }
-    
-    .scallop-bg {
-      position: absolute;
-      width: 360px;
-      height: 360px;
-      background: #FADBB5; 
-      border-radius: 50%;
-      border: 4px solid var(--text-dark);
-      z-index: 1;
-    }
-    .scallop-bg::before {
-      content: '';
-      position: absolute;
-      top: -18px; left: -18px; right: -18px; bottom: -18px;
-      border-radius: 50%;
-      border: 18px dotted var(--text-dark);
-      z-index: -1;
-    }
-    .scallop-bg::after {
-      content: '';
-      position: absolute;
-      top: -14px; left: -14px; right: -14px; bottom: -14px;
-      border-radius: 50%;
-      border: 18px dotted #FADBB5;
-      z-index: -1;
-    }
-
-    .profile-img {
-      position: relative;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--text-dark);
-      z-index: 2;
-      background: #fff;
-    }
-
+    .profile-wrapper { position: relative; width: 380px; height: 380px; display: flex; justify-content: center; align-items: center; z-index: 2; }
+    .scallop-bg { position: absolute; width: 360px; height: 360px; background: #FADBB5; border-radius: 50%; border: 4px solid var(--text-dark); z-index: 1; }
+    .scallop-bg::before { content: ''; position: absolute; top: -18px; left: -18px; right: -18px; bottom: -18px; border-radius: 50%; border: 18px dotted var(--text-dark); z-index: -1; }
+    .scallop-bg::after { content: ''; position: absolute; top: -14px; left: -14px; right: -14px; bottom: -14px; border-radius: 50%; border: 18px dotted #FADBB5; z-index: -1; }
+    .profile-img { position: relative; width: 280px; height: 280px; border-radius: 50%; object-fit: cover; border: 4px solid var(--text-dark); z-index: 2; background: #fff; }
     .gear-decor { position: absolute; font-size: 2.5rem; z-index: 3; }
     .gear-1 { left: -10px; top: 40%; }
     .gear-2 { left: 30px; bottom: 10%; transform: rotate(15deg); }
 
-    /* Text Content */
-    .hero-content { 
-      flex: 1; 
-      min-width: 350px; 
-      max-width: 750px; 
-      position: relative;
-      z-index: 2;
-    }
+    .hero-content { flex: 1; min-width: 350px; max-width: 750px; position: relative; z-index: 2; }
+    .hero-title { font-size: clamp(4rem, 8vw, 6.5rem); color: var(--text-dark); line-height: 0.95; margin-bottom: 20px; position: relative; }
 
-    .hero-title { 
-      font-size: clamp(4rem, 8vw, 6.5rem); 
-      color: var(--text-dark); 
-      line-height: 0.95; 
-      margin-bottom: 20px;
-      position: relative;
-    }
-
-    /* Highlighted Text Blocks */
-    .highlights-wrapper {
-      position: relative;
-      margin-bottom: 25px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 5px;
-    }
-
-    .highlight-line {
-      font-family: var(--font-head);
-      font-size: clamp(1.2rem, 3vw, 2rem);
-      padding: 5px 15px;
-      border: 2px solid var(--text-dark);
-      color: var(--text-dark);
-      letter-spacing: 0.5px;
-      position: relative;
-      z-index: 2;
-    }
+    .highlights-wrapper { position: relative; margin-bottom: 25px; display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
+    .highlight-line { font-family: var(--font-head); font-size: clamp(1.2rem, 3vw, 2rem); padding: 5px 15px; border: 2px solid var(--text-dark); color: var(--text-dark); letter-spacing: 0.5px; position: relative; z-index: 2; }
     .hl-pink { background-color: var(--accent-pink); }
     .hl-green { background-color: var(--accent-green); }
 
-    /* Stickers */
-    .img-sticker {
-      position: absolute;
-      font-family: var(--font-body);
-      font-weight: 700;
-      padding: 4px 12px;
-      border: 2px solid var(--text-dark);
-      border-radius: 50px;
-      box-shadow: 2px 2px 0px var(--text-dark);
-      font-size: 1.1rem;
-      z-index: 3;
-    }
+    .img-sticker { position: absolute; font-family: var(--font-body); font-weight: 700; padding: 4px 12px; border: 2px solid var(--text-dark); border-radius: 50px; box-shadow: 2px 2px 0px var(--text-dark); font-size: 1.1rem; z-index: 3; }
     .st-creative { background: var(--accent-pink); top: -20px; left: -20px; transform: rotate(-10deg); }
     .st-timeless { background: var(--accent-green); bottom: -15px; left: -30px; transform: rotate(-5deg); }
     .st-edgy { background: var(--accent-purple); bottom: -10px; right: 20px; transform: rotate(15deg); }
-    
-    .st-star {
-      position: absolute;
-      top: 10px; right: 30px;
-      font-family: var(--font-body);
-      font-weight: 700;
-      font-size: 1.2rem;
-      transform: rotate(5deg);
-    }
+    .st-star { position: absolute; top: 10px; right: 30px; font-family: var(--font-body); font-weight: 700; font-size: 1.2rem; transform: rotate(5deg); }
 
-    .hero-desc { 
-      font-family: var(--font-head);
-      font-size: clamp(1.5rem, 4vw, 2.2rem); 
-      color: var(--text-dark);
-      line-height: 1.2; 
-      margin-bottom: 30px; 
-      max-width: 600px;
-      text-transform: none;
-    }
+    .hero-desc { font-family: var(--font-head); font-size: clamp(1.5rem, 4vw, 2.2rem); color: var(--text-dark); line-height: 1.2; margin-bottom: 30px; max-width: 600px; text-transform: none; }
 
-    /* Wavy Scalloped Button */
-    .btn-wavy {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background-color: var(--accent-yellow);
-      color: var(--text-dark);
-      font-family: var(--font-body);
-      font-weight: 700;
-      font-size: 1.2rem;
-      padding: 10px 30px;
-      border: 3px solid var(--text-dark);
-      border-radius: 30px;
-      text-decoration: none;
-      box-shadow: 4px 4px 0px var(--text-dark);
-      transition: all 0.2s;
-      cursor: pointer;
-      position: relative;
-    }
+    .btn-wavy { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background-color: var(--accent-yellow); color: var(--text-dark); font-family: var(--font-body); font-weight: 700; font-size: 1.2rem; padding: 10px 30px; border: 3px solid var(--text-dark); border-radius: 30px; text-decoration: none; box-shadow: 4px 4px 0px var(--text-dark); transition: all 0.2s; cursor: pointer; position: relative; }
     .btn-wavy:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px var(--text-dark); }
-    .btn-wavy::after {
-      content: '';
-      position: absolute;
-      top: -7px; left: -7px; right: -7px; bottom: -7px;
-      border: 4px dotted var(--text-dark);
-      border-radius: 40px;
-      z-index: -1;
-    }
+    .btn-wavy::after { content: ''; position: absolute; top: -7px; left: -7px; right: -7px; bottom: -7px; border: 4px dotted var(--text-dark); border-radius: 40px; z-index: -1; }
     .btn-secondary { background-color: #fff; }
 
     /* SKILLS ARSENAL SECTION */
@@ -255,6 +115,30 @@
     .tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; }
     .tab-btn { background: #fff; border: 3px solid var(--text-dark); padding: 8px 24px; border-radius: 50px; font-family: var(--font-head); font-size: 1.2rem; cursor: pointer; box-shadow: 4px 4px 0px var(--text-dark); }
     .tab-btn.active { background: var(--accent-yellow); }
+
+    /* --- RETRO PROCESS / JOURNEY SECTION --- */
+    .process-section { background-color: var(--text-dark); color: var(--bg-cream); padding: 100px 0; }
+    .process-title { font-family: var(--font-head); font-size: clamp(3rem, 6vw, 5.5rem); text-align: center; margin-bottom: 40px; color: #fff; letter-spacing: 1px; }
+    
+    .process-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap; }
+    .process-tab { 
+      background: var(--bg-cream); color: var(--text-dark); border: 3px solid var(--text-dark); 
+      width: 60px; height: 60px; border-radius: 50%; font-family: var(--font-head); font-size: 2rem; 
+      display: flex; justify-content: center; align-items: center; cursor: pointer; 
+      box-shadow: 5px 5px 0px var(--accent-pink); transition: all 0.2s;
+    }
+    .process-tab:hover, .process-tab.active { transform: translate(-3px, -3px); box-shadow: 7px 7px 0px var(--accent-pink); background: var(--accent-yellow); }
+
+    .process-content-box { 
+      background: var(--accent-yellow); color: var(--text-dark); border: 4px solid var(--text-dark); 
+      border-radius: 30px; padding: 50px; display: flex; gap: 40px; align-items: center; 
+      max-width: 1000px; margin: 0 auto; box-shadow: 10px 10px 0px var(--text-dark); 
+    }
+    @media(max-width: 768px){ .process-content-box { flex-direction: column; text-align: center; padding: 30px; gap: 20px; } }
+    
+    .process-text h3 { font-family: var(--font-head); font-size: 2.5rem; margin-bottom: 15px; }
+    .process-text p { font-size: 1.2rem; font-weight: 700; line-height: 1.7; }
+    .process-graphic { font-size: 6rem; flex-shrink: 0; user-select: none; }
 
     /* CONTACT FORM SECTION */
     .contact-wrapper { background: var(--box-bg); border: 3px solid var(--text-dark); border-radius: 40px; padding: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; box-shadow: 10px 10px 0px var(--text-dark); margin: 40px 0; }
@@ -303,6 +187,7 @@
     <div class="navbar-links">
       <a href="#skills">Arsenal</a>
       <a href="#projects">Work</a>
+      <a href="#journey">Journey</a>
       <a href="#contact">Contact</a>
     </div>
     <a href="https://linkedin.com/in/mayar-h-139a2a2a6/" target="_blank" class="nav-btn">LinkedIn</a>
@@ -399,6 +284,27 @@
     </div>
   </section>
 
+  <section class="process-section" id="journey">
+    <div class="container">
+      <h2 class="process-title">Our Not-So-Secret Process</h2>
+      
+      <div class="process-tabs">
+        <div class="process-tab active" onclick="showProcess(1)">1</div>
+        <div class="process-tab" onclick="showProcess(2)">2</div>
+        <div class="process-tab" onclick="showProcess(3)">3</div>
+        <div class="process-tab" onclick="showProcess(4)">4</div>
+      </div>
+
+      <div class="process-content-box">
+        <div class="process-graphic" id="process-icon">☕</div>
+        <div class="process-text">
+          <h3 id="process-title-text">Kickoff & Coffee Chats</h3>
+          <p id="process-desc-text">We get to know you—your brand, your goals, your vibe (and maybe your favorite snacks). This is where the ideas start flying and the creative wheels start turning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="contact" class="container">
     <div class="contact-wrapper">
       <div class="contact-left">
@@ -460,6 +366,44 @@
   </footer>
 
   <script>
+    // --- INTERACTIVE JOURNEY / PROCESS LOGIC ---
+    function showProcess(step) {
+      // Update active button styling
+      const tabs = document.querySelectorAll('.process-tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+
+      // Content definitions mapping to your professional experience
+      const content = {
+        1: {
+          icon: '🤖',
+          title: 'AI Trainer at Outlier',
+          desc: 'Refining and training advanced artificial intelligence models. Specializing in evaluating algorithms, maintaining rigorous technical accuracy, and conditioning complex datasets.'
+        },
+        2: {
+          icon: '🔭',
+          title: 'GSoC Contributor — ML4SCI',
+          desc: 'Selected for Google Summer of Code under ML4SCI. Architecting high-performance data processing pipelines that integrate LSST tools directly into DeepLense workflows for gravitational lensing substructure detection.'
+        },
+        3: {
+          icon: '💼',
+          title: 'Corporate Engineering Internships',
+          desc: 'Connecting AI and enterprise infrastructure via dual tech internships at NTI and HDBank, preceded by banking evaluation studies at CIB Egypt.'
+        },
+        4: {
+          icon: '📊',
+          title: 'Big Data analysis & BI',
+          desc: 'Building end-to-end data pipelines for distributed environments (Spark, Hive, SQL) alongside intensive certification tracks in advanced business analytics and interactive visualizations (Power BI, Streamlit).'
+        }
+      };
+
+      // Apply selected step's information smoothly
+      document.getElementById('process-icon').innerText = content[step].icon;
+      document.getElementById('process-title-text').innerText = content[step].title;
+      document.getElementById('process-desc-text').innerText = content[step].desc;
+    }
+
+    // --- GITHUB API & MODAL LOGIC ---
     let currentRepos = [];
     const targetCollabs = [
       'WillItRain-Youthify',
@@ -514,7 +458,7 @@
     }
    
     function switchAccount(btn) {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
       btn.classList.add('active');
       fetchRepos(btn.dataset.user);
     }
@@ -525,7 +469,7 @@
       document.getElementById('modal-title').innerText = repo.name.replace(/[-_]/g, ' ');
       document.getElementById('modal-lang').innerText = repo.language || 'Code';
       document.getElementById('modal-stars').innerText = `⭐ ${repo.stargazers_count}`;
-      document.getElementById('modal-desc').innerText = repo.description || 'No detailed description provided. Check out the source code for more technical details.';
+      document.getElementById('modal-desc').innerText = repo.description || 'No detailed description provided. Check out the source code for more technical details on pipeline workflows.';
       document.getElementById('modal-link').href = repo.html_url;
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
