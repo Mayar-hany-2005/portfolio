@@ -138,14 +138,13 @@
     
     .process-text h3 { font-family: var(--font-head); font-size: 2.5rem; margin-bottom: 15px; }
     .process-text p { font-size: 1.2rem; font-weight: 700; line-height: 1.7; }
-    .process-graphic { font-size: 6rem; flex-shrink: 0; user-select: none; }
+    .process-graphic { font-family: var(--font-head); font-size: 6rem; flex-shrink: 0; user-select: none; color: var(--text-dark); }
 
     /* CONTACT FORM SECTION */
     .contact-wrapper { background: var(--box-bg); border: 3px solid var(--text-dark); border-radius: 40px; padding: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; box-shadow: 10px 10px 0px var(--text-dark); margin: 40px 0; }
     @media(max-width: 768px) { .contact-wrapper { grid-template-columns: 1fr; padding: 30px; } }
     .contact-left h2 { font-size: 3.5rem; margin-bottom: 15px; }
     .contact-left p { font-size: 1.2rem; font-weight: 700; margin-bottom: 30px; line-height: 1.5; }
-    .contact-graphic { font-size: 5rem; margin-bottom: 20px; }
     .contact-form { display: flex; flex-direction: column; gap: 25px; }
     .input-group { display: flex; flex-direction: column; }
     .input-group label { font-family: var(--font-head); font-size: 1.2rem; margin-bottom: 5px; }
@@ -295,10 +294,10 @@
       </div>
 
       <div class="process-content-box">
-        <div class="process-graphic" id="process-icon">💡</div>
+        <div class="process-graphic" id="process-icon">01</div>
         <div class="process-text">
           <h3 id="process-title-text">Academic Foundation</h3>
-          <p id="process-desc-text">Third-year student majoring in Business Intelligence & Analytical Systems at Helwan National University. Building a solid theoretical base in data infrastructure (and explicitly not Computer Science!).</p>
+          <p id="process-desc-text">Pursuing a degree in Business Intelligence & Analytical Systems at Helwan National University (GPA 3.82/4.0) , with coursework in Database Management, Data Structures, and Machine Learning[cite: 93].</p>
         </div>
       </div>
     </div>
@@ -307,7 +306,6 @@
   <section id="contact" class="container">
     <div class="contact-wrapper">
       <div class="contact-left">
-        <div class="contact-graphic">🚀</div>
         <h2>Ready to build the rocket?</h2>
         <p>Don't let your data sit idle—slide into my inbox and let's build scalable pipelines, uncover insights, and make magic together!</p>
       </div>
@@ -365,7 +363,7 @@
   </footer>
 
   <script>
-    // --- INTERACTIVE JOURNEY LOGIC (UPDATED WITH COOL EMOJIS & NO GPA) ---
+    // --- INTERACTIVE JOURNEY LOGIC (NO EMOJIS, CV-BASED DATA) ---
     function showProcess(step) {
       const tabs = document.querySelectorAll('.process-tab');
       tabs.forEach(tab => tab.classList.remove('active'));
@@ -373,24 +371,24 @@
 
       const content = {
         1: {
-          icon: '💡',
+          icon: '01',
           title: 'Academic Foundation',
-          desc: 'Third-year student majoring in Business Intelligence & Analytical Systems at Helwan National University. Building a solid theoretical base in data infrastructure (and explicitly not Computer Science!).'
+          desc: 'Pursuing a degree in Business Intelligence & Analytical Systems at Helwan National University , with coursework in Database Management, Data Structures, and Machine Learning[cite: 93].'
         },
         2: {
-          icon: '⚙️',
-          title: 'NTI Big Data Specialization',
-          desc: 'Completed an intensive Big Data Analysis internship at the National Telecommunication Institute, mastering core technologies like SQL, Apache Hive, Spark, and Elastic.'
+          icon: '02',
+          title: 'Professional Internships',
+          desc: 'Completed intensive training programs including AI & ML at NTI [cite: 17], BI Development at Housing and Development Bank [cite: 23], and Data Analytics with DEPI[cite: 28].'
         },
         3: {
-          icon: '🧠',
-          title: 'Financial & ML Internships',
-          desc: 'Applied predictive modeling and sentiment analysis during a machine learning internship at Prodigy InfoTech, and evaluated complex banking case studies with CIB Egypt.'
+          icon: '03',
+          title: 'Hackathons & Competitions',
+          desc: 'Built an end-to-end rain prediction pipeline during the NASA Space Apps Challenge [cite: 63, 65] and engineered a production pipeline for the Orange Egypt Hackathon[cite: 55, 56].'
         },
         4: {
-          icon: '🚀',
-          title: 'Continuous Development',
-          desc: 'Committed to lifelong learning beyond code. Currently advancing my English to a B2 professional level and actively studying Japanese to broaden my global communication skills.'
+          icon: '04',
+          title: 'Research & Open Source',
+          desc: 'Selected for Google Summer of Code 2026 with ML4SCI to build deep learning pipelines for gravitational lens detection and dark matter classification.'
         }
       };
 
